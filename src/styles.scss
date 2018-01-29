@@ -1,0 +1,44 @@
+.check-custom-properties-support {
+  display: none;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+@supports ((--a: 0)) {
+  .check-custom-properties-support {
+    display: block;
+  }
+}
+
+
+.ring-service {
+  width: 900px;
+  height: 900px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #000;
+  transform: translate(-50%, -50%);
+}
+
+
+.ring-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.6rem;
+  transform: translate(-50%, -50%) // Properly center the item
+             rotate(var(--circle-angle, 0deg)) // Orient the de-centering of the item
+             translateX(var(--circle-radius, 0)) // Push the item onto the circle
+             rotate(calc(-1 * var(--circle-angle, 0deg))); // Counter the item's rotation
+  transition: transform .3s cubic-bezier(0.42, 0, 0.27, 1.25);
+
+  @keyframes ring-item-ease-in {
+    from {
+      opacity: 0;
+    }
+  }
+  &--easing-in {
+    animation: ring-item-ease-in .5s ease-in-out;
+  }
+}

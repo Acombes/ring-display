@@ -1,0 +1,105 @@
+<html>
+<head>
+  <style>
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    :root {
+      font-size: 62.5%;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-size: 1.6rem;
+    }
+  </style>
+  <link rel="stylesheet" href="src/styles.css">
+  <style>
+    .ring-service:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: var(--circle-radius, 0);
+      border: 1px solid #000;
+      border-radius: 100%;
+      box-sizing: border-box;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring-service:after {
+       content: "";
+       display: block;
+       width: 10px;
+       height: 10px;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       background: red;
+       transform: translate(-50%, -50%);
+     }
+
+    .collab__content {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #000;
+      border-radius: 100%;
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+<div id="caca" class="collab">
+  <div class="collab__content">Tata</div>
+</div>
+
+<div class="container">
+  <div class="collab collab--center">
+    <div class="collab__content">Le centre du monde</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 1</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 2</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 3</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 4</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 5</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 6</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 7</div>
+  </div>
+  <div class="collab">
+    <div class="collab__content">Toto 8</div>
+  </div>
+</div>
+
+<script src="src/polyfills.min.js"></script>
+<script src="src/scripts.min.js"></script>
+<script>
+  var container = document.querySelector('.container')
+
+  var toto = new Ring(container, '.collab:not(.collab--center)', {
+    radius: '300px',
+    angleSeed: -90,
+    spreadTop: 90,
+    alignFirstItemTop: false
+  })
+</script>
+</body>
+</html>
